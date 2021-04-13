@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -17,22 +13,207 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submitButtonStyle{
+  background-color: #2f6d31;
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+}
+
+.textButtonInput{
+  flex-direction: row;
+}
+
+.submitButtonStyle:hover{
+  background-color: #4cb351;
+}
+
+.inputBoxStyle {
+  margin-top: 25px;
+  padding: 3px;
+  font-size: 16px;
+  border-width: 3px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+  min-width: 252px;
+}
+
+.selectFieldStyle {
+  
+  align-items: center;
+  justify-content:center;
+  position: inherit;
+  padding: 3px;
+  font-size: 20px;
+  border-width: 3px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(50,50,50,.75);
+  max-height: 35px;
+  
+}
+
+.taskListStyle {
+ padding-left: 0px;
+} 
+
+.taskContainer{
+  display: flex;
+  flex-direction: row;
+  
+  left: 50px;
+  min-width:250px;
+  border-style: solid;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 3px 1px 5px rgba(10,10,10,.75);
+  background-color: white;
+  
+}
+
+.taskFlexBox{
+  
+  width:250px;
+  color: rgb(20, 20, 20);
+  list-style-type: none;
+  text-align: left;
+  padding: 5px;
+}
+
+.taskFlexBoxCompleted{
+  
+  width:250px;
+  color: rgb(71, 71, 71);
+  list-style-type: none;
+  text-align: left;
+  text-decoration-line: line-through;
+  padding: 5px;
+}
+
+.filterTasksTextStyle{
+  position: relative;
+  text-align: left;
+}
+
+.taskButtonComplete{
+  display: flex;
+  flex-direction: row;
+  max-height: 30px;
+  background-color: #2d7683;
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+}
+
+.taskButtonComplete:hover{
+  background-color: #4bc6db;
+}
+
+.taskButtonDelete{
+  display: flex;
+  flex-direction: row;
+  max-height: 30px;
+  background-color: #a01a09;
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+}
+
+.taskButtonDelete:hover{
+  background-color: #db260e;
+}
+
+.tasksForTheDay{
+  width:250px;
+  color: #ffffff;
+  text-align: left;
+}
+.formTasksFlex{
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  justify-content: flex-end;
+ }
+
+
+
+.welcomeToDayStarter{
+  text-align:left;
+  font-size:36px;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.weather-container{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+
+.search-bar{
+  padding: 3px;
+  font-size: 16px;
+  border-width: 3px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+  min-width: 252px;
+}
+
+.checkTheWeather{
+  display:flex;
+  flex-direction:column;
+  margin:25px;
+}
+
+.weather-widget{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: rgb(20, 20, 20);
+  min-width:250px;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 15px;
+  box-shadow: 3px 1px 5px rgba(10,10,10,.75);
+  background-color:white;
+  padding: 15px;
+  font-weight: bold;
 }
