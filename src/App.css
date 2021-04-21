@@ -10,7 +10,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #130f40;
+background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -35,6 +36,7 @@
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 8px;
+  box-shadow: 3px 1px 5px rgba(10,10,10,.75);
 }
 
 .textButtonInput{
@@ -43,6 +45,7 @@
 
 .submitButtonStyle:hover{
   background-color: #4cb351;
+  
 }
 
 .inputBoxStyle {
@@ -120,7 +123,7 @@
 }
 
 .taskButtonComplete{
-  display: flex;
+  display:flex;
   flex-direction: row;
   max-height: 30px;
   background-color: #2d7683;
@@ -138,7 +141,7 @@
 }
 
 .taskButtonDelete{
-  display: flex;
+  display:flex;
   flex-direction: row;
   max-height: 30px;
   background-color: #a01a09;
@@ -159,6 +162,11 @@
   width:250px;
   color: #ffffff;
   text-align: left;
+}
+
+.taskButtons{
+  display:flex;
+  flex-direction:column;
 }
 .formTasksFlex{
   display: flex;
@@ -208,12 +216,101 @@
   flex-direction: column;
   justify-content: left;
   color: rgb(20, 20, 20);
-  min-width:250px;
+  min-width:220px;
   border-style: solid;
   border-radius: 5px;
   margin: 15px;
   box-shadow: 3px 1px 5px rgba(10,10,10,.75);
   background-color:white;
   padding: 15px;
-  font-weight: bold;
+  text-align: right;
+}
+
+.buttonsContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  
+}
+
+.buttonLazy{
+  font-size: 18px;
+  color:white;
+  background: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 16px;
+  border-color: rgb(179, 4, 4);
+  margin: 3px;
+  transition: all .2s ease-in-out; 
+}
+
+.buttonChill{
+  font-size: 18px;
+  color:white;
+  background: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 16px;
+  border-color: rgb(228, 105, 5);
+  margin: 3px;
+  transition: all .2s ease-in-out; 
+}
+
+.buttonMeh{
+  font-size: 18px;
+  color:white;
+  background: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 16px;
+  border-color: rgb(235, 231, 5);
+  margin: 3px;
+  transition: all .2s ease-in-out; 
+}
+
+.buttonMotivated{
+  font-size: 18px;
+  color:white;
+  background: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 16px;
+  border-color: rgb(2, 185, 2);
+  margin: 3px;
+  transition: all .2s ease-in-out; 
+}
+
+.buttonExcited{
+  position: relative;
+  font-size: 18px;
+  color:white;
+  background: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 16px;
+  border-color: rgb(6, 209, 158);
+  margin: 3px;
+  transition: all .2s ease-in-out; 
+}
+
+.buttonLazy:hover{
+  font-size: 22px;
+}
+
+.buttonChill:hover{
+  font-size: 22px;
+}
+
+.buttonMeh:hover{
+  font-size: 22px;
+}
+
+.buttonMotivated:hover{
+  font-size: 22px;
+}
+
+.buttonExcited:hover{
+  font-size: 22px;
 }

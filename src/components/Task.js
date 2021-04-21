@@ -25,6 +25,7 @@ function Task({text,task, tasks, setTasks, filteredTasks}) {
     return (
         <div className="taskContainer">
             <li className={`${task.completed ? "taskFlexBoxCompleted" : "taskFlexBox"}`}   >{text}</li>
+            <div className="taskButtons">
             <button className="taskButtonComplete" onClick={completeHandler} >
             <AiFillCheckCircle />
             COMPLETE
@@ -34,7 +35,7 @@ function Task({text,task, tasks, setTasks, filteredTasks}) {
             <AiFillDelete />
             DELETE
             </button>
-        
+            </div>
         </div>
     )
 }

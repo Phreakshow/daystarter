@@ -4,6 +4,8 @@ import Form from "./components/Form.js"
 import WeatherWidget from "./components/WeatherWidget"
 import TaskList from "./components/TaskList"
 import React, { useState, useEffect } from "react";
+import Moods from "./components/Moods"
+import Quotes from "./components/Quotes"
 
 function App() {
 
@@ -11,6 +13,8 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] =useState([]);
   const [status,setStatus] = useState("all");
+  const [mood, setMood] = useState("");
+  
 
   const filterHandler =() => {
     switch(status){
@@ -51,6 +55,7 @@ const getLocalTasks=()=>{
 
 
 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -60,6 +65,12 @@ const getLocalTasks=()=>{
         
         <TaskList tasks={tasks} setTasks={setTasks} inputText={inputText} setInputText={setInputText} filteredTasks={filteredTasks} />
         </div>
+
+        <div>
+        <Moods mood={mood} setMood={setMood}/>
+        <Quotes />
+        </div>
+        
         <WeatherWidget />
       </header>
       

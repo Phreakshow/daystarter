@@ -94,9 +94,7 @@ function WeatherWidget() {
             {Math.round(weather.main.temp)}°c
           </div>
           <div className="weatherIcon"></div>
-          <div>{getWeatherIcon(weather.weather[0].id)}</div>
-        
-          <div className="weather">{weather.weather[0].main}</div>
+          <div className="weather">{getWeatherIcon(weather.weather[0].id)} {weather.weather[0].main}</div>
         </div>
           </div>
         ) : ("")}
