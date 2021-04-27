@@ -7,7 +7,7 @@ const api = {
   key: "2c9c927605d1adfe1e672a211821ffbf",
   base: "https://api.openweathermap.org/data/2.5/",
 }
-
+// you can also check out some packages, that handle dates/timezones etc
 function WeatherWidget() {
 
   const[query,setQuery] = useState("");

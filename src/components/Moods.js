@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Moods({mood,setMood}) {
+function Moods({ mood,setMood }) {
 
     const currentMoodHandler= (e) =>{
         setMood(
@@ -10,7 +10,7 @@ function Moods({mood,setMood}) {
     }
 
     
-    const moodAnnouncer = (mood) =>{
+    const moodAnnouncer = (mood) => {
             switch(mood){
                 case "lazy":
                     return "Don't worry. We all have Lazy days!";
