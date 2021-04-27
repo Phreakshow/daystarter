@@ -11,29 +11,23 @@ function Quotes() {
         const data = await response.json();
         setQuote(data);
         console.log(data);
-    
+        
       };
       
     useEffect(() => {
        getQuotes()}, []);
-   
-    /*
-       The undefined check? 
 
-        (typeof quote.text != "undefined") ? (
-          <div>say something</div>
-          ) : ("")
-       
-
- */
-
+      let randomQuoteIndex = Math.floor(Math.random()*1643);
+  
       
 
     return (
         <div>
-        <button onClick={getQuotes}>Get Inspired</button>
-          
-        </div>
+        <button onClick={getQuotes}> Another Quote?</button>
+        <div>{(quote[randomQuoteIndex] !== undefined) ? (
+          <p>{quote[randomQuoteIndex].text}</p>
+          ) : ("")}</div>
+       </div>
     )
 }
 
