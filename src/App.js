@@ -19,10 +19,10 @@ function App() {
   const filterHandler =() => {
     switch(status){
       case "completed":
-        setFilteredTasks(tasks.filter(todo => todo.completed === true));
+        setFilteredTasks(tasks.filter(todo => Boolean(todo.completed)));
         break;
       case "uncompleted":
-        setFilteredTasks(tasks.filter(todo => todo.completed === false));
+        setFilteredTasks(tasks.filter(todo => !Boolean(todo.completed)));
         break;
       default:
         setFilteredTasks(tasks);
@@ -45,7 +45,7 @@ function App() {
 };
 
 const getLocalTasks=()=>{
-  if(localStorage.getItem("tasks") ===null){
+  if(localStorage.getItem("tasks") === null){ // I guess it can be just !localStorage.getItem("tasks"), try it
     localStorage.setItem("tasks", JSON.stringify([]))
   }else{
     let taskLocal = JSON.parse(localStorage.getItem("tasks"));
@@ -55,15 +55,15 @@ const getLocalTasks=()=>{
 
 
 
-
+  const props = { inputText, setInputText, tasks, setTasks, setStatus }
   return (
     <div className="App">
       <header className="App-header">
         <div className="formTasksFlex">
         
-        <Form inputText={inputText} setInputText={setInputText} tasks={tasks} setTasks={setTasks} status={status} setStatus={setStatus}/>
+        <Form {...props} status={status}/>
         
-        <TaskList tasks={tasks} setTasks={setTasks} inputText={inputText} setInputText={setInputText} filteredTasks={filteredTasks} />
+        <TaskList {...props} filteredTasks={filteredTasks}/>
         </div>
 
         <div>

@@ -1,14 +1,14 @@
 import React from 'react'
 import { AiFillCheckCircle, AiFillDelete } from "react-icons/ai";
 
-function Task({text,task, tasks, setTasks, filteredTasks}) {
-    const deleteHandler=()=>{
-        setTasks(tasks.filter(element =>element.id !== task.id));
+function Task({text,task, tasks, setTasks, filteredTasks}) { // filtered tasks is not used
+    const deleteHandler = () => {
+        setTasks(tasks.filter(element => element.id !== task.id));
      };
  
      const completeHandler =() =>{
-         setTasks(tasks.map((item)=>{
-             if(item.id ===task.id){
+         setTasks(tasks.map((item) => {
+             if(item.id === task.id){
                  return {
                      ...item, 
                      completed: !item.completed,
@@ -24,7 +24,7 @@ function Task({text,task, tasks, setTasks, filteredTasks}) {
 
     return (
         <div className="taskContainer">
-            <li className={`${task.completed ? "taskFlexBoxCompleted" : "taskFlexBox"}`}   >{text}</li>
+            <li className={`${task.completed ? "taskFlexBoxCompleted" : "taskFlexBox"}`}>{text}</li>
             <div className="taskButtons">
             <button className="taskButtonComplete" onClick={completeHandler} >
             <AiFillCheckCircle />
