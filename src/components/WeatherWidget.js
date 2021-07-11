@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import "../App.css"
 import {TiWeatherCloudy,TiWeatherDownpour,TiWeatherShower,TiWeatherSnow,TiWeatherStormy,TiWeatherSunny,TiWeatherWindyCloudy} from "react-icons/ti";
 
@@ -8,10 +8,9 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/",
 }
 // you can also check out some packages, that handle dates/timezones etc
-function WeatherWidget() {
+function WeatherWidget({query, setQuery, weather, setWeather}) {
 
-  const[query,setQuery] = useState("");
-  const[weather,setWeather] = useState({});
+ 
   
 
   const search = evt =>{
@@ -83,7 +82,7 @@ function WeatherWidget() {
             onKeyPress={search}
             />
         </div>
-        {(typeof weather.main != "undefined") ? (
+        {(typeof weather.main !== "undefined") ? (
           <div className="weather-widget">
           <div className="location-box">
           <div className="location">{weather.name}, {weather.sys.country}</div>

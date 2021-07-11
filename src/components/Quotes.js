@@ -3,6 +3,7 @@ import React,{useState, useEffect} from 'react'
 function Quotes() {
   
     const [quote,setQuote] = useState({});
+    const [quoteIndex, setQuoteIndex] = useState (0)
 
     const getQuotes = async () => {
         const response = await fetch(
@@ -13,19 +14,24 @@ function Quotes() {
         console.log(data);
         
       };
+
+   
       
-    useEffect(() => { // Since you call the api only once, there is no need to have it in a different method
+    useEffect(() => { 
        getQuotes()}, []);
 
-      let randomQuoteIndex = Math.floor(Math.random()*1643);
-  
+
+   const shuffleHandler = () =>{
+      setQuoteIndex(Math.floor(Math.random()*1643));
+      };
       
 
     return (
-        <div>
-        <button onClick={getQuotes}> Another Quote?</button>
-        <div>{quote[randomQuoteIndex] ? (
-          <p>{quote[randomQuoteIndex].text}</p>
+        <div className = "quoteComponentContainer">
+        <button onClick={shuffleHandler} className="submitButtonStyle"> Another Quote?</button>
+        <div className="quoteContainer">{quote[quoteIndex] ? (
+          <p>"{quote[quoteIndex].text}"</p>
+         
           ) : ""}</div>
        </div>
     )

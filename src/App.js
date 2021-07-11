@@ -6,6 +6,9 @@ import TaskList from "./components/TaskList"
 import React, { useState, useEffect } from "react";
 import Moods from "./components/Moods"
 import Quotes from "./components/Quotes"
+import SpotifyMain from "./components/SpotifyWidget/client/SpotifyMain"
+
+
 
 function App() {
 
@@ -14,7 +17,9 @@ function App() {
   const [filteredTasks, setFilteredTasks] =useState([]);
   const [status,setStatus] = useState("all");
   const [mood, setMood] = useState("");
-  
+  const [query,setQuery] = useState("");
+  const [weather,setWeather] = useState({});
+ 
 
   const filterHandler =() => {
     switch(status){
@@ -45,7 +50,7 @@ function App() {
 };
 
 const getLocalTasks=()=>{
-  if(localStorage.getItem("tasks") === null){ // I guess it can be just !localStorage.getItem("tasks"), try it
+  if(!localStorage.getItem("tasks")){
     localStorage.setItem("tasks", JSON.stringify([]))
   }else{
     let taskLocal = JSON.parse(localStorage.getItem("tasks"));
@@ -56,6 +61,9 @@ const getLocalTasks=()=>{
 
 
   const props = { inputText, setInputText, tasks, setTasks, setStatus }
+
+
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -69,9 +77,12 @@ const getLocalTasks=()=>{
         <div>
         <Moods mood={mood} setMood={setMood}/>
         <Quotes />
+    
+        <SpotifyMain/>
+       
         </div>
         
-        <WeatherWidget />
+        <WeatherWidget query={query} setQuery={setQuery} weather={weather} setWeather={setWeather}/>
       </header>
       
     </div>
