@@ -27,6 +27,13 @@ background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
   color: #61dafb;
 }
 
+.welcomeToDayStarter{
+  text-align:left;
+  font-size:28px;
+  padding: 0px;
+  margin: 0px;
+}
+
 .submitButtonStyle{
   background-color: #2f6d31;
   border: none;
@@ -177,12 +184,7 @@ background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
 
 
 
-.welcomeToDayStarter{
-  text-align:left;
-  font-size:36px;
-  padding: 0px;
-  margin: 0px;
-}
+
 
 
 .weather-container{

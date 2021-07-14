@@ -78,7 +78,7 @@ const getLocalTasks=()=>{
         <Moods mood={mood} setMood={setMood}/>
         <Quotes />
     
-        <SpotifyMain/>
+        <SpotifyMain weather={weather} mood={mood} />
        
         </div>
         

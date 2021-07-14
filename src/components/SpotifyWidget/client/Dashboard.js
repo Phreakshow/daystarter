@@ -1,7 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import useAuth from "./useAuth"
-import {Container} from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
 import TrackSearchResult from './TrackSearchResult'
 import Player from "./Player"
@@ -12,7 +11,7 @@ const spotifyApi = new SpotifyWebApi({
     clientId: "4a1bdacbfecf4e1eae6ed48c8cd8748c",
 })
 
-function Dashboard({code}) {
+function Dashboard({code, mood, weather}) {
     const accessToken = useAuth(code);
     const [search, setSearch] = useState("");
     const [searchResults, setSearchResults] = useState([]);
@@ -23,6 +22,40 @@ function Dashboard({code}) {
         setSearch("")
 
     };
+
+    function getRecommendations(){
+       let weatherMood = `${mood}`;
+       if(typeof weather.main === "undefined"){
+        weatherMood =  `weather ${mood}`; 
+       }else{
+        weatherMood = `${weather.weather[0].main} ${mood}`;
+         }
+       
+         
+         
+        spotifyApi.searchTracks(weatherMood).then(res =>{
+           
+           setSearchResults(res.body.tracks.items.map(track =>{
+             const smallestAlbumImage = track.album.images.reduce((smallest, image) =>{
+                 if(image.height < smallest.height) return image
+                 return smallest
+             }, track.album.images[0]);
+ 
+             return {
+                 artist: track.artists[0].name,
+                 title: track.name,
+                 uri: track.uri,
+                 albumUrl: smallestAlbumImage.url
+             }
+ 
+           }))
+         })
+
+         setSearch("");
+         setSearchResults([]);
+};
+
+
    
  
     useEffect(()=>{
@@ -58,9 +91,11 @@ function Dashboard({code}) {
     }, [search, accessToken])
 
 
+
+
     return (
         <div>
-            <Container >
+            <div >
                 <input   
                 type='search' 
                 placeholder="Search Songs/Artists" 
@@ -68,6 +103,8 @@ function Dashboard({code}) {
                 onChange={e=> setSearch(e.target.value)}
                 className="search-bar"
                 />
+
+                <button onClick={getRecommendations} className="submitButtonStyle"> Recommend me!</button>
               
 
                 <div className="flex-grow-2 my-5" style={{overflowY: "auto"}}>
@@ -78,7 +115,7 @@ function Dashboard({code}) {
                 <div>
                      <Player accessToken={accessToken} trackUri={playingTrack ? playingTrack.uri : ""} />
                 </div>
-            </Container>
+            </div>
         </div>
     )
 }

@@ -30,7 +30,7 @@ function Task({text,task, tasks, setTasks, filteredTasks}) { // filtered tasks i
             <AiFillCheckCircle />
             COMPLETE
             </button>
-            
+          
             <button className="taskButtonDelete" onClick ={deleteHandler}>
             <AiFillDelete />
             DELETE

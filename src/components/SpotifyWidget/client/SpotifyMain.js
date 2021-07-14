@@ -4,8 +4,8 @@ import Login from "./Login"
 
 const code = new URLSearchParams(window.location.search).get('code')
 
-function SpotifyMain() {
-    return (code ? <Dashboard code={code} /> : <Login />)
+function SpotifyMain({mood, weather}) {
+    return (code ? <Dashboard code={code} mood={mood} weather={weather}/> : <Login />)
     
 }
 
